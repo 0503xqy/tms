@@ -90,16 +90,15 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.11.0</version>
         </dependency>
-        <!-- 以spring-boot-starter的方式引用 -->
         <dependency>
-            <groupId>org.ssssssss</groupId>
-            <artifactId>magic-api-spring-boot-starter</artifactId>
-            <version>2.0.1</version>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.7.0</version>
         </dependency>
 
     </dependencies>

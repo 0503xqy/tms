@@ -1,7 +1,7 @@
 server:
   port: 8848
   servlet:
-    context-path: /api
+    context-path: /
 
 spring:
   application:
@@ -13,7 +13,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/tms?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: 123456
+    password: root
     druid:
       initial-size: 5
       max-active: 20
@@ -35,7 +35,3 @@ audience:
   name: restapiuser
   expiresSecond: 172800
 
-magic-api:
-  web: /magic/web
-  resource:
-    location: /data/magic-api

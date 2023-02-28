@@ -8,9 +8,13 @@ import java.util.Date;
 
 
 @Data
-@MappedSuperclass
+@Entity(name = "prd_main")
 public class BaseModel {
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String productNo;
 
     private String imagePath;
@@ -22,10 +26,10 @@ public class BaseModel {
     private Double theoryWeight;
 
 
-    private Date createTime;
+    private String createTime;
 
 
-    private Date updateTime;
+    private String updateTime;
 
 
     private Long createUserId;

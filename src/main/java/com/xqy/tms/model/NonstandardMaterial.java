@@ -3,6 +3,7 @@ package com.xqy.tms.model;
 import com.xqy.tms.base.BaseModel;
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ import javax.persistence.Id;
 @Data
 @Entity(name = "prd_nonstandardmaterial")
 @ToString
+@DynamicUpdate
 public class NonstandardMaterial extends BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

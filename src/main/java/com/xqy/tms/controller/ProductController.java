@@ -1,14 +1,16 @@
 package com.xqy.tms.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.xqy.tms.Aannotion.JwtIgnore;
+import com.xqy.tms.config.DTypeConfig;
 import com.xqy.tms.dto.Result;
 import com.xqy.tms.model.CornerAluminum;
-import com.xqy.tms.service.CornerAluminumService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.xqy.tms.service.CommonService;
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.Optional;
 
@@ -17,24 +19,26 @@ import java.util.Optional;
 public class ProductController {
 
     @Resource
-    private CornerAluminumService cornerAluminumService;
+    private CommonService commonService;
 
-    ObjectMapper mapper = new ObjectMapper();
-
-    @GetMapping("/getById/{type}/{id}")
+    @GetMapping("/get/{type}/{id}")
     @JwtIgnore
-    public Result<Optional> getOne(@PathVariable Long id, @PathVariable String type){
-        final Optional<CornerAluminum> cornerAluminumById = cornerAluminumService.findCornerAluminumById(id);
-        return Result.success(cornerAluminumById);
+    public Result<Optional> getOne(@PathVariable Long id, @PathVariable String type) throws IllegalAccessException {
+        if (!DTypeConfig.dType.contains(type)){
+            return Result.error("不存在的类型");
+        }
+        Optional byId = commonService.findById(id, type);
+        return Result.success(byId);
     }
 
     @PostMapping("/saveOrUpdate/{type}")
-    public Result<String> saveOrUpdate(@RequestBody Map<String,String> cornerAluminum, @PathVariable String type){
-        if (type == "CornerAluminum"){
-            CornerAluminum cornerAluminum1 = mapper.convertValue(cornerAluminum, CornerAluminum.class);
-            CornerAluminum aluminum = cornerAluminumService.addCornerAluminum((CornerAluminum) cornerAluminum);
-        }
+    public Result<String> saveOrUpdate(@RequestBody Map<String, Object> map ,@PathVariable String type) throws InvocationTargetException, IllegalAccessException, InstantiationException {
 
-        return Result.success("添加成功");
+        if (!DTypeConfig.dType.contains(type)){
+            return Result.error("不存在的类型");
+        }
+        commonService.saveOrUpdateCornerAluminum(map,type);
+
+        return Result.success("操作成功");
     }
 }
