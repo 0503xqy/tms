@@ -5,5 +5,5 @@ import com.xqy.tms.model.CornerAluminum;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CornerAluminumRepository extends JpaRepository<CornerAluminum, Long> {
+public interface CornerAluminumRepository extends JpaRepository<CornerAluminum,Long> {
 }

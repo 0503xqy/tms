@@ -8,7 +8,8 @@ import java.util.Date;
 
 
 @Data
-@Entity(name = "prd_main")
+@Entity
+@Table(name = "prd_main")
 public class BaseModel {
 
     @Id
