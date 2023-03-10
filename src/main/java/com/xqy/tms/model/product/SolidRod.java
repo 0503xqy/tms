@@ -1,4 +1,4 @@
-package com.xqy.tms.model;
+package com.xqy.tms.model.product;
 
 import com.xqy.tms.base.BaseModel;
 import lombok.Data;
@@ -11,22 +11,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * 圆管
+ * 实心棒
  */
 @Data
-@Entity(name = "prd_roundtube")
+@Entity(name = "prd_solidrod")
 @ToString
 @DynamicUpdate
-public class RoundTube extends BaseModel {
+public class SolidRod extends BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // 外径
-    private Integer outerDiameter;
-    // 内径
-    private Integer innerDiameter;
 
-    public RoundTube() {
-    }
+    // 长外径
+    private Integer longOuterDiameter;
+    // 短外径
+    private Integer shortOuterDiameter;
 }

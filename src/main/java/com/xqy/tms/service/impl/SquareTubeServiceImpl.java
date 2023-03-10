@@ -1,7 +1,7 @@
 package com.xqy.tms.service.impl;
 
-import com.xqy.tms.mapper.CornerAluminumRepository;
-import com.xqy.tms.model.product.CornerAluminum;
+import com.xqy.tms.mapper.SquareTubeRepository;
+import com.xqy.tms.model.product.SquareTube;
 import com.xqy.tms.service.BaseService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -15,30 +15,30 @@ import java.util.Optional;
 
 /**
  * @author xqy
- * @description: CornerAluminumServiceImpl
+ * @description: SquareTubeServiceImpl
  * @date 2023/3/10 0:00
  */
 @Service
-public class CornerAluminumServiceImpl implements BaseService {
+public class SquareTubeServiceImpl implements BaseService {
 
     @Resource
-    private CornerAluminumRepository cornerAluminumRepository;
+    private SquareTubeRepository squareTubeRepository;
 
     @Override
     public void saveOrUpdate(Map map) throws InvocationTargetException, IllegalAccessException {
-        CornerAluminum cornerAluminum = new CornerAluminum();
-        BeanUtils.populate(cornerAluminum,map);
-        cornerAluminumRepository.save(cornerAluminum);
+        SquareTube SquareTube = new SquareTube();
+        BeanUtils.populate(SquareTube,map);
+        squareTubeRepository.save(SquareTube);
     }
 
     @Override
     public Optional findById(Long id) {
-        return cornerAluminumRepository.findById(id);
+        return squareTubeRepository.findById(id);
     }
 
     @Override
     public Page findPage(Integer pageNumber, Integer pageSize) {
         PageRequest pageRequest = PageRequest.of(pageNumber - 1, pageSize);
-        return cornerAluminumRepository.findAll(pageRequest);
+        return squareTubeRepository.findAll(pageRequest);
     }
 }

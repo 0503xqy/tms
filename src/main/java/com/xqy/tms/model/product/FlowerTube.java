@@ -1,4 +1,4 @@
-package com.xqy.tms.model;
+package com.xqy.tms.model.product;
 
 import com.xqy.tms.base.BaseModel;
 import lombok.Data;

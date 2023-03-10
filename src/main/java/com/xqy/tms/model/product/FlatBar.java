@@ -1,4 +1,4 @@
-package com.xqy.tms.model;
+package com.xqy.tms.model.product;
 
 import com.xqy.tms.base.BaseModel;
 import lombok.Data;
@@ -11,20 +11,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * 角铝
+ * 扁条
  */
 @Data
-@Entity(name = "prd_corneraluminum")
+@Entity(name = "prd_flatbar")
 @ToString
 @DynamicUpdate
-public class CornerAluminum extends BaseModel {
+public class FlatBar extends BaseModel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     // 形状
     private String shape;
-    // 是否带齿
-    private Boolean withTeeth;
-    // 是否壁厚均匀
-    private Boolean uniformWallThickness;
 
-    public CornerAluminum() {
+    public FlatBar() {
     }
 }

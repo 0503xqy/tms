@@ -1,7 +1,7 @@
 package com.xqy.tms.mapper;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.xqy.tms.model.CornerAluminum;
+import com.xqy.tms.model.product.CornerAluminum;
 import org.springframework.stereotype.Repository;
 
 @Repository

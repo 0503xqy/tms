@@ -1,8 +1,8 @@
 package com.xqy.tms.Factory;
 
+import com.xqy.tms.mapper.MainRepository;
 import com.xqy.tms.service.BaseService;
-import com.xqy.tms.service.impl.CornerAluminumServiceImpl;
-import com.xqy.tms.service.impl.FlaBarServiceImpl;
+import com.xqy.tms.service.impl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,31 +21,47 @@ import java.util.Set;
 
 @Component
 public class ServiceFactory {
-
-    public static Set<String> dType = new HashSet<>();
+    
     public  Map<String, BaseService> mType = new HashMap<>();
 
     @Resource
-    private CornerAluminumServiceImpl cornerAluminumServiceImpl;
+    private CornerAluminumServiceImpl cornerAluminumService;
 
     @Resource
     private FlaBarServiceImpl flaBarService;
-    static {
-        dType.add("CornerAluminum");
-        dType.add("FlatBar");
-        dType.add("FlowerTube");
-        dType.add("HeatSink");
-        dType.add("NonstandardMaterial");
-        dType.add("RoundTube");
-        dType.add("SolidRod");
-        dType.add("SquareTube");
-        dType.add("Main");
-    }
-
+    
+    @Resource
+    private FlowerTubeServiceImpl flowerTubeService;
+    
+    @Resource
+    private HeatSinkServiceImpl heatSinkService;
+    
+    @Resource
+    private NonstandardMaterialServiceImpl nonstandardMaterialService;
+    
+    @Resource
+    private RoundTubeServiceImpl roundTubeService;
+    
+    @Resource
+    private SolidRodServiceImpl solidRodService;
+    
+    @Resource
+    private  SquareTubeServiceImpl squareTubeService;
+    
+    @Resource
+    private MainServiceImpl mainService;
+    
     @PostConstruct
     public void init(){
-        mType.put("CornerAluminum", cornerAluminumServiceImpl);
+        mType.put("CornerAluminum", cornerAluminumService);
         mType.put("FlatBar",flaBarService);
+        mType.put("FlowerTube",flowerTubeService);
+        mType.put("HeatSink",heatSinkService);
+        mType.put("NonstandardMaterial",nonstandardMaterialService);
+        mType.put("RoundTube",roundTubeService);
+        mType.put("SolidRod",solidRodService);
+        mType.put("SquareTube",squareTubeService);
+        mType.put("Main",mainService);
     }
 
 }

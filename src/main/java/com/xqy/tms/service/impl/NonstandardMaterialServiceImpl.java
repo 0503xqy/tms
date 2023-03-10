@@ -1,7 +1,7 @@
 package com.xqy.tms.service.impl;
 
-import com.xqy.tms.mapper.CornerAluminumRepository;
-import com.xqy.tms.model.product.CornerAluminum;
+import com.xqy.tms.mapper.NonstandardMaterialRepository;
+import com.xqy.tms.model.product.NonstandardMaterial;
 import com.xqy.tms.service.BaseService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -15,30 +15,30 @@ import java.util.Optional;
 
 /**
  * @author xqy
- * @description: CornerAluminumServiceImpl
+ * @description: NonstandardMaterialServiceImpl
  * @date 2023/3/10 0:00
  */
 @Service
-public class CornerAluminumServiceImpl implements BaseService {
+public class NonstandardMaterialServiceImpl implements BaseService {
 
     @Resource
-    private CornerAluminumRepository cornerAluminumRepository;
+    private NonstandardMaterialRepository nonstandardMaterialRepository;
 
     @Override
     public void saveOrUpdate(Map map) throws InvocationTargetException, IllegalAccessException {
-        CornerAluminum cornerAluminum = new CornerAluminum();
-        BeanUtils.populate(cornerAluminum,map);
-        cornerAluminumRepository.save(cornerAluminum);
+        NonstandardMaterial NonstandardMaterial = new NonstandardMaterial();
+        BeanUtils.populate(NonstandardMaterial,map);
+        nonstandardMaterialRepository.save(NonstandardMaterial);
     }
 
     @Override
     public Optional findById(Long id) {
-        return cornerAluminumRepository.findById(id);
+        return nonstandardMaterialRepository.findById(id);
     }
 
     @Override
     public Page findPage(Integer pageNumber, Integer pageSize) {
         PageRequest pageRequest = PageRequest.of(pageNumber - 1, pageSize);
-        return cornerAluminumRepository.findAll(pageRequest);
+        return nonstandardMaterialRepository.findAll(pageRequest);
     }
 }

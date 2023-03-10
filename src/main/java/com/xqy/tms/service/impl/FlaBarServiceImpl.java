@@ -1,7 +1,7 @@
 package com.xqy.tms.service.impl;
 
 import com.xqy.tms.mapper.FlatBarRepository;
-import com.xqy.tms.model.FlatBar;
+import com.xqy.tms.model.product.FlatBar;
 import com.xqy.tms.service.BaseService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 /**
  * @author xqy
- * @description: TODO
+ * @description: FlaBarServiceImpl
  * @date 2023/3/10 0:00
  */
 @Service

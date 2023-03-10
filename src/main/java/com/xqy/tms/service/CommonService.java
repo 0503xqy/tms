@@ -4,7 +4,7 @@ import com.xqy.tms.base.BaseException;
 import com.xqy.tms.base.BaseModel;
 import com.xqy.tms.exception.CustomException;
 import com.xqy.tms.mapper.*;
-import com.xqy.tms.model.*;
+import com.xqy.tms.model.product.*;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
