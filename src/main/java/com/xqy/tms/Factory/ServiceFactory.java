@@ -1,17 +1,14 @@
 package com.xqy.tms.Factory;
 
-import com.xqy.tms.mapper.MainRepository;
 import com.xqy.tms.service.BaseService;
-import com.xqy.tms.service.impl.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.xqy.tms.service.product.*;
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author xqy
@@ -20,6 +17,7 @@ import java.util.Set;
  */
 
 @Component
+@Data
 public class ServiceFactory {
     
     public  Map<String, BaseService> mType = new HashMap<>();

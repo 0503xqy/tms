@@ -1,7 +1,7 @@
-package com.xqy.tms.service.impl;
+package com.xqy.tms.service.product;
 
-import com.xqy.tms.mapper.FlowerTubeRepository;
-import com.xqy.tms.model.product.FlowerTube;
+import com.xqy.tms.mapper.RoundTubeRepository;
+import com.xqy.tms.model.product.RoundTube;
 import com.xqy.tms.service.BaseService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -15,30 +15,30 @@ import java.util.Optional;
 
 /**
  * @author xqy
- * @description: flowerTubeRepository
+ * @description: RoundTubeServiceImpl
  * @date 2023/3/10 0:00
  */
 @Service
-public class FlowerTubeServiceImpl implements BaseService {
+public class RoundTubeServiceImpl implements BaseService {
 
     @Resource
-    private FlowerTubeRepository flowerTubeRepository;
+    private RoundTubeRepository roundTubeRepository;
 
     @Override
     public void saveOrUpdate(Map map) throws InvocationTargetException, IllegalAccessException {
-        FlowerTube flowerTube = new FlowerTube();
-        BeanUtils.populate(flowerTube,map);
-        flowerTubeRepository.save(flowerTube);
+        RoundTube RoundTube = new RoundTube();
+        BeanUtils.populate(RoundTube,map);
+        roundTubeRepository.save(RoundTube);
     }
 
     @Override
     public Optional findById(Long id) {
-        return flowerTubeRepository.findById(id);
+        return roundTubeRepository.findById(id);
     }
 
     @Override
     public Page findPage(Integer pageNumber, Integer pageSize) {
         PageRequest pageRequest = PageRequest.of(pageNumber - 1, pageSize);
-        return flowerTubeRepository.findAll(pageRequest);
+        return roundTubeRepository.findAll(pageRequest);
     }
 }

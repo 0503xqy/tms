@@ -1,4 +1,4 @@
-package com.xqy.tms.service.impl;
+package com.xqy.tms.service.product;
 
 import com.xqy.tms.mapper.CornerAluminumRepository;
 import com.xqy.tms.model.product.CornerAluminum;

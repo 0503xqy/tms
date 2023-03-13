@@ -1,4 +1,4 @@
-package com.xqy.tms.Aannotion;
+package com.xqy.tms.annotion;
 
 import java.lang.annotation.*;
 

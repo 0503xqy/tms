@@ -1,7 +1,7 @@
-package com.xqy.tms.service.impl;
+package com.xqy.tms.service.product;
 
-import com.xqy.tms.mapper.SquareTubeRepository;
-import com.xqy.tms.model.product.SquareTube;
+import com.xqy.tms.mapper.FlatBarRepository;
+import com.xqy.tms.model.product.FlatBar;
 import com.xqy.tms.service.BaseService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -15,30 +15,30 @@ import java.util.Optional;
 
 /**
  * @author xqy
- * @description: SquareTubeServiceImpl
+ * @description: FlaBarServiceImpl
  * @date 2023/3/10 0:00
  */
 @Service
-public class SquareTubeServiceImpl implements BaseService {
+public class FlaBarServiceImpl implements BaseService {
 
     @Resource
-    private SquareTubeRepository squareTubeRepository;
+    private FlatBarRepository flatBarRepository;
 
     @Override
     public void saveOrUpdate(Map map) throws InvocationTargetException, IllegalAccessException {
-        SquareTube SquareTube = new SquareTube();
-        BeanUtils.populate(SquareTube,map);
-        squareTubeRepository.save(SquareTube);
+        FlatBar FlaBar = new FlatBar();
+        BeanUtils.populate(FlaBar,map);
+        flatBarRepository.save(FlaBar);
     }
 
     @Override
     public Optional findById(Long id) {
-        return squareTubeRepository.findById(id);
+        return flatBarRepository.findById(id);
     }
 
     @Override
     public Page findPage(Integer pageNumber, Integer pageSize) {
         PageRequest pageRequest = PageRequest.of(pageNumber - 1, pageSize);
-        return squareTubeRepository.findAll(pageRequest);
+        return flatBarRepository.findAll(pageRequest);
     }
 }

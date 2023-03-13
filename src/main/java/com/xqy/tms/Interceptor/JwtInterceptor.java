@@ -3,14 +3,12 @@ package com.xqy.tms.Interceptor;
 
 import com.alibaba.druid.util.StringUtils;
 import com.github.isrsal.logging.ResponseWrapper;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-import com.xqy.tms.Aannotion.JwtIgnore;
+import com.xqy.tms.annotion.JwtIgnore;
 import com.xqy.tms.config.Audience;
 import com.xqy.tms.exception.CustomException;
 import com.xqy.tms.utils.JwtTokenUtil;
 import lombok.extern.slf4j.Slf4j;
 
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -19,7 +17,6 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
